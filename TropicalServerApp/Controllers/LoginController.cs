@@ -16,12 +16,12 @@ namespace TropicalServerApp.Controllers
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             HttpContextBase objContext = controllerContext.HttpContext;
-            string userName = objContext.Request["userName"];
-            string userPassword = objContext.Request["userPassword"];
+            string userName = objContext.Request["UserID"];
+            string userPassword = objContext.Request["Password"];
             UserAccount user = new UserAccount
             {
-                UserName = userName,
-                UserPassword = userPassword
+                UserID = userName,
+                Password = userPassword
             };
 
             return user;
@@ -33,7 +33,7 @@ namespace TropicalServerApp.Controllers
         // static user object 
         // GET: Login
         public ActionResult Login()
-        { 
+        {
             return View();
         }
 
@@ -41,12 +41,28 @@ namespace TropicalServerApp.Controllers
         // public ActionResult SubmitLogin([ModelBinder(typeof(UserAccountBinder))] UserAccount obj)
         public ActionResult SubmitLogin(UserAccount obj)
         {
-            //
-            ReportsBLL Bll = new ReportsBLL();
-            DataSet ds = Bll.GetUsersSetting_BLL();
-            Console.WriteLine("getting user setting" + ds);
-            //Bll.IsValidUser(obj.UserName, obj.UserPassword);
-            return View("LoginResult", obj);
+            if (ModelState.IsValid)
+            {
+                ReportsBLL Bll = new ReportsBLL();
+                var isValid = Bll.IsValidUser(obj.UserID, obj.Password);
+                if (isValid)
+                {
+                    Session["UserId"] = obj.UserID;
+                    Session["Password"] = obj.Password;
+                    return RedirectToAction("Product", "Product");
+                }
+                else
+                {
+                    return View("Login");
+                }
+            }
+            else
+            {
+                return View("Login");
+            }
+
+
+
         }
 
     }

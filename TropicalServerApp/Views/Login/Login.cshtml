@@ -1,4 +1,5 @@
-﻿
+﻿@model TropicalServerApp.Models.UserAccount
+
 @{
     Layout = null;
 }
@@ -62,10 +63,12 @@
                 <form id="loginBox" action="SubmitLogin" method="post">
 
                     <div id="useridlbl">
-                        Login ID: <input name="UserName" id="useridtextbox" type="text" />
+                        @*Login ID: <input name="UserID" id="useridtextbox" type="text" value="@Model.UserID" />*@
+                        @Html.Label("Login ID")
+                        @Html.TextBoxFor(x => x.UserID, new { id = "useridtextbox" })
                     </div>
                     <div id="passwordlbl">
-                        Password: <input name="UserPassword" id="passwordtextbox" type="password" />
+                        Password: <input name="Password" id="passwordtextbox" type="password" />
                     </div>
 
 
@@ -99,5 +102,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 </body>
 </html>

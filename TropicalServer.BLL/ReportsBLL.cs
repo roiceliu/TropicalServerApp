@@ -11,9 +11,18 @@ namespace TropicalServer.BLL
     {
        public Boolean IsValidUser(string UserName, string Password)
         {
-            DataSet ds = GetUsersSetting_BLL();
-            Console.WriteLine(ds.Tables);
-            return true;
+            DataSet ds = new ReportsDAL().GetLogin(UserName, Password);
+            var userCount = ds.Tables["Login"].Rows.Count;
+            if(userCount > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public DataSet GetUserSetting_BLL()
+        {
+            return (new ReportsDAL().GetUsersSetting_DAL());
         }
 
         public DataSet GetProductByProductCategory_BLL(string newItemDescription)
@@ -26,10 +35,7 @@ namespace TropicalServer.BLL
             return (new ReportsDAL().GetCustSalesRepNumber_DAL(newCustSaleRepNum));
         }
 
-        public DataSet GetUsersSetting_BLL()
-        {
-            return (new ReportsDAL().GetUsersSetting_DAL());
-        }
+       
 
         public DataSet GetCustomersSetting_BLL()
         {

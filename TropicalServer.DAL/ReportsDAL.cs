@@ -12,7 +12,34 @@ namespace TropicalServer.DAL
     {
         string connString = Convert.ToString(ConfigurationManager.AppSettings["TropicalServerConnectionString"]);
 
-        
+
+        //get specific user's login information
+        public DataSet GetLogin(string UserID, string Password)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connString))
+                { 
+                    string query = "select UserID, Password from dbo.tblUserLogin where UserID = @UserID and Password = @Password";
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.CommandType = CommandType.Text;
+                    command.CommandTimeout = 6000;
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    command.Parameters.AddWithValue("@Password", Password);
+
+                    SqlDataAdapter adp = new SqlDataAdapter(command);
+                    adp.Fill(ds, "Login");
+                    connection.Close();
+                }
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occured while retrieving User Login Info - " + ex.Message.ToString());
+            }
+        }
 
         /*
          * Insert item description to get the #, description, 
