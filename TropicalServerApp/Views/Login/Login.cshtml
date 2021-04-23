@@ -1,0 +1,103 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - TropicalServer</title>
+    @*@Styles.Render("~/Content/site.css")*@
+    @Styles.Render("~/Content/TropicalStyles/Login.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+@*<body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>*@
+
+<body id="bodyLogin">
+    <div id="container">
+        <div id="header">
+            <div class="imageDisplay">
+                <img height="200" src="@Url.Content("~/Images/Header.jpg")" />
+            </div>
+        </div>
+
+
+        <div id="BodyDetail">
+            <h3 id="Loginlbl">Mobile Customer Order Tracking</h3>
+            <div>
+                @*Login Box  Here *@
+                <form id="loginBox" action="SubmitLogin" method="post">
+
+                    <div id="useridlbl">
+                        Login ID: <input name="UserName" id="useridtextbox" type="text" />
+                    </div>
+                    <div id="passwordlbl">
+                        Password: <input name="UserPassword" id="passwordtextbox" type="password" />
+                    </div>
+
+
+                    <div id="login">
+                        @*checkbox save user *@
+                        Remember my ID <input id="Checkbox1" type="checkbox" />
+                        <input id="LoginBtn_1" type="submit" value="Log-In" />
+                    </div>
+
+                </form>
+
+
+                <div id="forgot">
+                    <span id="forgotUsername">Forgot Username</span>
+                    <span id="forgotPassword">Forgot Password</span>
+                </div>
+
+            </div>
+        </div>
+
+        @*<hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>*@
+
+    </div>
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

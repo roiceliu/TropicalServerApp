@@ -1,0 +1,33 @@
+﻿@model TropicalServerApp.Models.UserAccount
+@*@using System.Data
+@model DataSet*@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoginResult</title>
+</head>
+<body>
+    <div> 
+        userName = @Model.UserName <br/>
+        userPassword = @Model.UserPassword <br/>
+        @*<table>
+            @foreach (DataRow row in Model.Tables[0].Rows)
+            {
+                <tr>
+                    <td>@row["Login_ID"]</td>
+                    <td>@row["Password"]</td>
+                </tr>
+
+            }
+        </table>*@
+       
+    </div>
+</body>
+</html>
