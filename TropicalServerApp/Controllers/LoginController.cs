@@ -41,6 +41,7 @@ namespace TropicalServerApp.Controllers
         // public ActionResult SubmitLogin([ModelBinder(typeof(UserAccountBinder))] UserAccount obj)
         public ActionResult SubmitLogin(UserAccount obj)
         {
+            //
             ReportsBLL Bll = new ReportsBLL();
             DataSet ds = Bll.GetUsersSetting_BLL();
             Console.WriteLine("getting user setting" + ds);
