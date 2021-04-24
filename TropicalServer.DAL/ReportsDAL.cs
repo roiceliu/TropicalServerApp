@@ -41,6 +41,8 @@ namespace TropicalServer.DAL
             }
         }
 
+
+
         /*
          * Insert item description to get the #, description, 
          * pre-price and size of the item           
@@ -81,7 +83,7 @@ namespace TropicalServer.DAL
                     }
                     command.CommandTimeout = 6000;
                     SqlDataAdapter adp = new SqlDataAdapter(command);
-                    adp.Fill(ds);
+                    adp.Fill(ds, newItemDescription);
                     connection.Close();
                 }
                 return ds;

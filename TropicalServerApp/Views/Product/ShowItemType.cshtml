@@ -1,0 +1,23 @@
+﻿@using System.Data
+@model DataSet
+
+
+
+<table>
+    <thead>
+        <th>ITEM #</th>
+        <th>ITEM DESCRIPTION</th>
+        <th>PRE-PRICE</th>
+        <th>SIZE</th>
+    </thead>
+    @foreach(DataRow row in Model.Tables[0].Rows)
+            {
+    <tr>
+        <td>@row[0]</td>
+        <td>@row[1]</td>
+        <td>@row[2]</td>
+        <td>@row[3]</td>
+    </tr>
+    }
+    <tr></tr>
+</table>

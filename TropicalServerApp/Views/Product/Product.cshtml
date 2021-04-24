@@ -3,5 +3,62 @@
     ViewBag.Title = "Product";
 }
 
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+
 <h2>Product</h2>
+
+<div>
+    <div>
+        <h2>PRODUCT CATEGORIES</h2>
+
+        <div>
+            <input type="button" class="CategoryName" id="CaribbeanLine" value="Caribbean Line" onclick="ShowType('Caribbean Line')" />
+            <input type="button" class="CategoryName" id="CentralAmerican" value="Central American Line" onclick="ShowType('Central American')" />
+            <input type="button" class="CategoryName" id="MexicanLine" value="Mexican Line" onclick="ShowType('Mexican Line')" />
+            <input type="button" class="CategoryName" id="PaisanoLine" value="Paisano Line" onclick="ShowType('Paisano Line')" />
+            <input type="button" class="CategoryName" id="DomesticItems" value="Domestic Items" onclick="ShowType('Domestic Items')" />
+            <input type="button" class="CategoryName" id="Meats" value="Meats" onclick="ShowType('Meats')" />
+            <input type="button" class="CategoryName" id="Desserts" value="Desserts" onclick="ShowType('Desserts')" />
+            <input type="button" class="CategoryName" id="Others" value="Others" onclick="ShowType('Others')" />
+            <input type="button" class="CategoryName" id="DrinkableYogurts" value="Drinkable Yogurts" onclick="ShowType('Drinkable Yogurts')" />
+            <input type="button" class="CategoryName" id="Arepas" value="Arepas" onclick="ShowType('Arepas')" />
+            <input type="button" class="CategoryName" id="PerPoundItems" value="Per Pound Items" onclick="ShowType('Per Pound Items')" />
+
+        </div>
+
+
+
+    </div>
+    <div id="dataTable">
+        @*the {} helps renderAction is ignore return type*@
+        @{Html.RenderAction("ShowItemType");
+        }
+    </div>
+
+    <script>
+
+        var ShowType = function (type) {
+            var url = '@Url.Action("ShowItemType", "Product")';
+            $('#dataTable').load(url, {ItemTypeDescription: type });
+
+            //Not working
+            @*$ajax({
+                type: "Post",
+                url: "./Product/ShowItemType",
+                data: { ItemTypeDescription: type },
+                success: function (result) {
+                    $("#dataTable").html(result);
+                }
+            })*@
+        }
+    </script>
+
+
+</div>
+
+
+
+
 
