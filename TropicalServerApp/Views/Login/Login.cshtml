@@ -63,18 +63,19 @@
                 @using (Html.BeginForm("SubmitLogin", "Login", FormMethod.Post, new { @id = "loginBox" }))
                 {
                 <div id="useridlbl">
-                    @*Login ID: <input name="UserID" id="useridtextbox" type="text" value="@Model.UserID" />*@
-                    @Html.Label("Login ID")
-                    @Html.TextBoxFor(x => x.UserID, Model.UserID, new { @id = "useridtextbox" })
-                    @*@Html.ValidationMessageFor(m => m.UserID, "", new { @class = "error" })*@
+                    @Html.Label("Login ID:")
+                    @Html.TextBoxFor(x => x.UserID, new { @id = "useridtextbox" })
+                    @*@Html.ValidationMessageFor(m => m.UserID, "", new { @id = "errorlbl" })*@
                 </div>
                 <div id="passwordlbl">
-                    @Html.Label("Password")
+                    @Html.Label("Password:")
                     @Html.PasswordFor(x => x.Password, new { @id = "passwordtextbox" })
                     @*@Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })*@
+
+                    <p id="errorlbl">@ViewData["ErrorMessage"]</p>
                 </div>
 
-
+                
                 <div id="login">
                     @*checkbox save user *@
                     <span>
