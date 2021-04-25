@@ -36,6 +36,17 @@
     font-weight: bold;
     border: transparent;
     margin-bottom: 5px;
+    transition:0.2s all ease-in-out;
+}
+
+#CategoryOps input:hover {
+    background-color: white;
+    color: #013468;
+}
+
+#CategoryOps input:focus{
+    background-color: white;
+    color: #013468;
 }
 
 .imageStyle

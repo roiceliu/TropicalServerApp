@@ -26,21 +26,22 @@
     padding: 4px 0px 4px 8px;
 }
 
-    #menuItem li{
-        margin-left:30px
-    }
+#menuItem li{
+    margin-left:30px
+}
 
-    #menuItem a {
-        background-color: #013468;
-        color:white;
-        display: block;
-        padding: 4px 20px;
-        text-decoration: none;
-        white-space: nowrap;
-        text-align: center;
-        font-size: 10pt;
-        border-radius: 5px;
-    }
+#menuItem a {
+    background-color: #013468;
+    color:white;
+    display: block;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 10pt;
+    border-radius: 5px;
+    font-weight:bold;
+}
 #menuItem ul {
     list-style: none;
     margin: 0px;
@@ -48,41 +49,37 @@
     width: auto;
 }
 
+
+#menuItem ul li a:hover {
+    background-color: #FBB917;
+    color: #000000;
+    text-decoration: none;
+}
+
+#menuItem ul li a:visited {
+    background-color: #FBB917;
+    color: #013468;
+    text-decoration: none;
+}
+
 .nav_btn {
-    color:white;
+    color: white;
     background-color: #013468;
-    display: block; 
+    display: block;
     padding: 4px 20px;
     text-decoration: none;
     white-space: nowrap;
     text-align: center;
     font-size: 10pt;
     border-radius: 5px;
+    border:none;
 }
 
-
-/*    #menuItem ul li a, #menuItem ul li a:visited {
-        background-color: #465c71;
-        border: 1px #4e667d solid;
-        color: #dde4ec;
-        display: block;
-        line-height: 1.35em;
-        padding: 4px 20px;
-        text-decoration: none;
-        white-space: nowrap;
-    }*/
-
-        #menuItem ul li a:hover {
-            background-color: #FBB917;
-            color: #000000;
-            text-decoration: none;
-        }
-
-        #menuItem ul li a:active {
-            background-color: #465c71;
-            color: #cfdbe6;
-            text-decoration: none;
-        }
+.nav_btn:hover {
+    background-color: #FBB917;
+    color: #000000;
+    text-decoration: none;
+}
       
 body {
     background: white;
