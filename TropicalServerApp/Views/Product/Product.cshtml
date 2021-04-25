@@ -4,16 +4,16 @@
 }
 
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-<script src="~/Scripts/jquery.validate.js"></script>
+@Styles.Render("~/Content/TropicalStyles/Products.css")
+@*<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>*@
 
-<h2>Product</h2>
 
 <div>
-    <div>
+    <div id="productCategories">
         <h2>PRODUCT CATEGORIES</h2>
 
-        <div>
+        <div id="CategoryOps">
             <input type="button" class="CategoryName" id="CaribbeanLine" value="Caribbean Line" onclick="ShowType('Caribbean Line')" />
             <input type="button" class="CategoryName" id="CentralAmerican" value="Central American Line" onclick="ShowType('Central American')" />
             <input type="button" class="CategoryName" id="MexicanLine" value="Mexican Line" onclick="ShowType('Mexican Line')" />
@@ -31,7 +31,7 @@
 
 
     </div>
-    <div id="dataTable">
+    <div id="Tb_bgd" >
         @*the {} helps renderAction is ignore return type*@
         @{Html.RenderAction("ShowItemType");
         }

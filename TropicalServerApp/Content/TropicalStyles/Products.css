@@ -1,26 +1,41 @@
 ﻿/* Products
 ----------------------------------------------------------*/
 
-.productCategories
+#productCategories
 {
-    width: 200px;
+    width: 15%;
     height:600px;
+    margin-left:5px;
     float:left;
     padding-left:auto;
     padding-right:auto;
 }
 
-.productCategoriesLabel
-{
-    margin-top:5px;
-    width:200px;
-    font-size:15px;
-    background-color:#0033CC;
-    padding-top:15px;
-    padding-bottom:15px;
-    text-align:center;    
-    color:white;
-    
+#productCategories h2 {
+    background-color: #0169c0;
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 2px;
+    color: white;
+    margin-left: -5px;
+    margin-bottom: 40px;
+}
+
+#CategoryOps input {
+    margin-top: 5px;
+    width: 200px;
+    font-size: 15px;
+    background-color: #3d8fa2;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: transparent;
+    margin-bottom: 5px;
 }
 
 .imageStyle
@@ -31,12 +46,11 @@
     align-content:center;
 }
 
-.chartdisplay
-{
-    float:left;
-    width:778px;
-    height:600px;
-    background-color:#FFFFFF;
+#dataTable {
+    float: left;
+    padding: 5px;
+    width: 100%;
+    background-color: #FFFFFF;
 }
 
 .dataGrid
@@ -48,26 +62,48 @@
     border-color:black;
     width:768px;
 }
-.chartHeaderStyle
-{
-    background-color:#307D7E;
-    font-weight:bold;
-    color:white;
-    text-align:left;    
+
+.chartHeaderStyle > th {
+    background-color: #3d8fa2;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    padding-left: 20px;
 }
-.chartItemStyle
-{
-    background-color:#98AFC7;
-    color:Black;
-    text-align:left;
-    height:30px;
+tr:nth-child(odd) {
+    background-color: #98AFC7;
+    color: Black;
+    text-align: left;
+    height: 30px;
 }
-.chartAlternatingItemStyle
-{    
-    background-color:#C6DEFF;
-    color:black;    
-    height:30px;
+tr:nth-child(even) {
+    background-color: #C6DEFF;
+    color: black;
+    height: 30px;
 }
 #rprItemTypeID table, #rprItemTypeID table tr {
     border: 1px solid #FBB917;
 }
+
+#ItemDataTb {
+    width:95%;
+}
+
+tbody tr{
+    height: 30px;
+}
+
+td {
+    padding-left: 20px;
+    padding-top:0;
+    padding-bottom:0;
+}
+
+#Tb_bgd {
+    float: left;
+    padding: 5px;
+    width: 83%;
+    background-color: #FFFFFF;
+    min-height: 600px;
+}
+

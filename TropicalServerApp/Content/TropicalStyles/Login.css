@@ -1,13 +1,18 @@
-﻿body {
-	margin: 10px auto;
+﻿#LoginHtml{
+	background-color:white;
+}
+
+body {
+	margin: 0px;
 	padding: 0;
 	width: 980px;
 	height: 100%;
 	background-color: #FFFFFF;
 /*	border: 3px solid #ffcc00;*/
 }
+
 #bodyLogin {
-	margin: 10px auto;
+	margin: 0px auto;
 	padding: 0;
 	width: 100%;
 	height: 100%;
@@ -15,41 +20,45 @@
 }
 #header
 {
-	margin:0;
-	padding:0;	
-	width:980px;
-	
+	width:100%;	
 }
 
 
 #container {
 	margin-top: 0;
-	padding-top: 10px;
+/*	padding-top: 10px;*/
 	width: 100%;
 	height: 100%;
 	background-color: #FFFFFF;
 
 }
+
+#LoginImg {
+	width: 100%;
+	object-fit: contain;
+}
 #BodyDetail {
 	height: 300px;
 	width: 440px;
 	margin: 100px auto;
-	background-color: #FF6600;
+	background-color: #F88630;
 	color: #FFFFFF;
 	padding: 10px;
-	
+	border-radius:5px;
 }
-#Loginlbl
-{
-	font-size:25px;
+#Loginlbl {
+	font-size: 18pt;
+	margin: 15px 0px;
 	color:White;
-	font-family:Calibri;
+	font-family: Calibri;
+	font-weight:bold;
+	text-transform:uppercase;
 }
 #loginBox {
 	height: 180px;
 	margin-top: 10px;
 	width: 440px;
-	background-color: #FFCC00;
+	background-color: #FFB90B;
 }
 
 #errorBox 
@@ -71,6 +80,7 @@
     font-family: Calibri;
     font-size: 16pt;
     margin-left: 20px;
+	font-weight:bold;
 }
 
 #passwordlbl
@@ -79,6 +89,7 @@
 	font-family:Calibri;
 	font-size:16pt;
 	margin-left:20px;
+	font-weight:bold;
 }
 
 #useridtextbox
@@ -109,25 +120,29 @@
 #forgot
 {
 	text-align:center;
-	margin-top:15px;
+	margin-top:25px;
+	
 }
 
-#forgotPassword
+	#forgot > span {
+		cursor: pointer;
+	}
+
+#RememberMe {
+	font-family: Calibri;
+	color: #e6e6e6;
+	font-size: 12pt;
+}
+
+.forgetUser
 {
 	font-family: Calibri;
 	font-size: 16px;
 	text-decoration: underline;
 	color: #FFFFFF;
-	margin-left:50px;
+	margin:0 50px;
 }
-#forgotUsername
-{
-	font-family: calibri;
-	font-size: 16px;
-	text-decoration: underline;
-	color: #FFFFFF;
-	margin-right:50px;
-}
+
 
 #emailIDlbl
 {
@@ -160,16 +175,56 @@
 }
 
 #LoginBtn_1 {
-    color: White;
-    font-family: Calibri;
-    font-size: 9px;
-    background-color: black;
-    border: 1px solid black;
-    border-radius: 5px;
-    width:80px;
-    font-weight:bold;
-    text-align: center;
+	color: White;
+	font-family: Calibri;
+	font-size: 12pt;
+	background-color: black;
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 100px;
+	height: 30px;
+	font-weight: bold;
+	text-align: center;
+	box-shadow: 3px 3px 5px dimgrey;
+	cursor:pointer;
 }
 #myFirstID {
     color: red;
 }
+
+#Checkbox1[type="checkbox"]:before {
+	position: relative;
+	display: block;
+	width: 11px;
+	height: 11px;
+	border: 1px solid #808080;
+	content: "";
+	background: #FFF;
+}
+
+#Checkbox1[type="checkbox"]:after {
+	position: relative;
+	display: block;
+	left: 2px;
+	top: -11px;
+	width: 7px;
+	height: 7px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #B3B3B3 #dcddde #dcddde #B3B3B3;
+	content: "";
+	background-image: linear-gradient(135deg, #B1B6BE 0%, #FFF 100%);
+	background-repeat: no-repeat;
+	background-position: center;
+	
+}
+
+#Checkbox1[type="checkbox"]:checked:after {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAQAAABuW59YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAB2SURBVHjaAGkAlv8A3QDyAP0A/QD+Dam3W+kCAAD8APYAAgTVZaZCGwwA5wr0AvcA+Dh+7UX/x24AqK3Wg/8nt6w4/5q71wAAVP9g/7rTXf9n/+9N+AAAtpJa/zf/S//DhP8H/wAA4gzWj2P4lsf0JP0A/wADAHB0Ngka6UmKAAAAAElFTkSuQmCC'), linear-gradient(135deg, #B1B6BE 0%, #FFF 100%);
+}
+
+#Checkbox1{
+	margin-right:80px;
+	cursor:pointer;
+}
+

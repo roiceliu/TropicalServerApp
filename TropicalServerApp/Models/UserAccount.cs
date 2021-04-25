@@ -15,5 +15,7 @@ namespace TropicalServerApp.Models
         public string Password { get; set; }
 
         public string EmailID { get; set; }
+
+        public bool RememberMe { get; set; }
     }
 }

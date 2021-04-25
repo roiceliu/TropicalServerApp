@@ -5,12 +5,11 @@
 }
 
 <!DOCTYPE html>
-<html>
+<html id="LoginHtml">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - TropicalServer</title>
-    @*@Styles.Render("~/Content/site.css")*@
     @Styles.Render("~/Content/TropicalStyles/Login.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -51,7 +50,7 @@
     <div id="container">
         <div id="header">
             <div class="imageDisplay">
-                <img height="200" src="@Url.Content("~/Images/Header.jpg")" />
+                <img id="LoginImg"  src="@Url.Content("~/Images/Header.jpg")" />
             </div>
         </div>
 
@@ -60,30 +59,40 @@
             <h3 id="Loginlbl">Mobile Customer Order Tracking</h3>
             <div>
                 @*Login Box  Here *@
-                <form id="loginBox" action="SubmitLogin" method="post">
 
-                    <div id="useridlbl">
-                        @*Login ID: <input name="UserID" id="useridtextbox" type="text" value="@Model.UserID" />*@
-                        @Html.Label("Login ID")
-                        @Html.TextBoxFor(x => x.UserID, new { id = "useridtextbox" })
-                    </div>
-                    <div id="passwordlbl">
-                        Password: <input name="Password" id="passwordtextbox" type="password" />
-                    </div>
+                @using (Html.BeginForm("SubmitLogin", "Login", FormMethod.Post, new { @id = "loginBox" }))
+                {
+                <div id="useridlbl">
+                    @*Login ID: <input name="UserID" id="useridtextbox" type="text" value="@Model.UserID" />*@
+                    @Html.Label("Login ID")
+                    @Html.TextBoxFor(x => x.UserID, Model.UserID, new { @id = "useridtextbox" })
+                    @*@Html.ValidationMessageFor(m => m.UserID, "", new { @class = "error" })*@
+                </div>
+                <div id="passwordlbl">
+                    @Html.Label("Password")
+                    @Html.PasswordFor(x => x.Password, new { @id = "passwordtextbox" })
+                    @*@Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })*@
+                </div>
 
 
-                    <div id="login">
-                        @*checkbox save user *@
-                        Remember my ID <input id="Checkbox1" type="checkbox" />
-                        <input id="LoginBtn_1" type="submit" value="Log-In" />
-                    </div>
+                <div id="login">
+                    @*checkbox save user *@
+                    <span>
+                        @Html.Label("Remember my ID", new { @id = "RememberMe" })
+                        @Html.CheckBoxFor(x => x.RememberMe, new { @id = "Checkbox1" })
+                    </span>
+                       
+                   
+                    
+                    <input id="LoginBtn_1" type="submit" value="Log-In" />
+                </div>
 
-                </form>
+                }
 
 
                 <div id="forgot">
-                    <span id="forgotUsername">Forgot Username</span>
-                    <span id="forgotPassword">Forgot Password</span>
+                    <span class ="forgetUser" id="forgotUsername" onclick="location.href='@Url.Action("Forget", "Login")'">Forgot Username</span>
+                    <span class ="forgetUser" id="forgotPassword" onclick="location.href='@Url.Action("Forget", "Login")'">Forgot Password</span>
                 </div>
 
             </div>
@@ -102,8 +111,9 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+@*<script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>*@
+
 </body>
 </html>

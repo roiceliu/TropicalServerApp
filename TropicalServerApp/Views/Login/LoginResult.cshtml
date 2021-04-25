@@ -1,6 +1,4 @@
-﻿@model TropicalServerApp.Models.UserAccount
-
-
+﻿
 @{
     Layout = null;
 }
@@ -14,9 +12,12 @@
 </head>
 <body>
     <div> 
-        userName = @Model.UserID <br/>
-        userPassword = @Model.Password <br/>
-       
+        This is the Forget Password/UserName page
+        @using (Html.BeginForm("Login","Login", FormMethod.Get))
+            {
+                <input type="submit" value="Return To Login Page" />
+            }
     </div>
+
 </body>
 </html>

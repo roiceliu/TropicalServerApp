@@ -25,7 +25,7 @@ namespace TropicalServerApp
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       //"~/Content/bootstrap.css",
                       "~/Content/Site.css"
-                      //"~/Content/TropicalStyles/Login.css"
+                
                       ));
         }
     }

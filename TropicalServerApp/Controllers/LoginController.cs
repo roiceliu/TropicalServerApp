@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data;
 using TropicalServerApp.Models;
 using TropicalServer.BLL;
+using System.Web.Security;
 
 
 namespace TropicalServerApp.Controllers
@@ -30,15 +31,26 @@ namespace TropicalServerApp.Controllers
 
     public class LoginController : Controller
     {
-        // static user object 
+
+
         // GET: Login
+        [AllowAnonymous]
         public ActionResult Login()
         {
-            return View();
+            //if cookie saved userID, display it
+            UserAccount user = new UserAccount();
+            if (Request.Cookies["Login"] != null)
+            {
+                user.UserID = Request.Cookies["Login"].Values["UserID"];
+                user.RememberMe = true;
+            }
+            return View(user);
         }
 
         //get all user filled data from Login form: userName & userpassword => check if correct
         // public ActionResult SubmitLogin([ModelBinder(typeof(UserAccountBinder))] UserAccount obj)
+        [HttpPost]
+        [AllowAnonymous]
         public ActionResult SubmitLogin(UserAccount obj)
         {
             if (ModelState.IsValid)
@@ -48,21 +60,48 @@ namespace TropicalServerApp.Controllers
                 if (isValid)
                 {
                     Session["UserId"] = obj.UserID;
-                    Session["Password"] = obj.Password;
+                    FormsAuthentication.SetAuthCookie(obj.UserID, obj.RememberMe);
+
+                    //use RememberMe checkbox to decide if saving UserID or not
+                    if (obj.RememberMe)
+                    {
+                        HttpCookie cookie = new HttpCookie("Login");
+                        cookie.Values.Add("UserID", obj.UserID);
+                        cookie.Expires = DateTime.Now.AddDays(15);
+                        Response.Cookies.Add(cookie);
+                    }
+                    else
+                    {
+                        HttpCookie cookie = new HttpCookie("Login");
+                        cookie.Expires = DateTime.Now.AddDays(-1);
+                        Response.Cookies.Add(cookie);
+                    }
                     return RedirectToAction("Product", "Product");
                 }
-                else
-                {
-                    return View("Login");
-                }
+
+                ViewData["ErrorMessage"] = "UserID or Password is incorrect";
+                return View("Login");
+               
             }
             else
             {
                 return View("Login");
             }
 
+        }
 
+        [AllowAnonymous]
+        public ActionResult Forget()
+        {
+            return View("LoginResult");
+        }
 
+        [HttpPost]
+        [Authorize]
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
         }
 
     }

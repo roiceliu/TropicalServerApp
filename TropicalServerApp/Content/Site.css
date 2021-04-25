@@ -5,6 +5,23 @@
     font-size: 9pt;
     font-family:Calibri;
 }
+
+.Layout_container{
+    width:100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -30px;
+    margin-bottom: 40px;
+
+}
+
+.navbar-nav{
+    display:flex;
+}
+
 #menuItem  {
     padding: 4px 0px 4px 8px;
 }
@@ -14,9 +31,15 @@
     }
 
     #menuItem a {
-        color: red;
-        background-color: #3a4f63;
-        width: 100%;
+        background-color: #013468;
+        color:white;
+        display: block;
+        padding: 4px 20px;
+        text-decoration: none;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 10pt;
+        border-radius: 5px;
     }
 #menuItem ul {
     list-style: none;
@@ -25,8 +48,20 @@
     width: auto;
 }
 
+.nav_btn {
+    color:white;
+    background-color: #013468;
+    display: block; 
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 10pt;
+    border-radius: 5px;
+}
 
-    #menuItem ul li a, #menuItem ul li a:visited {
+
+/*    #menuItem ul li a, #menuItem ul li a:visited {
         background-color: #465c71;
         border: 1px #4e667d solid;
         color: #dde4ec;
@@ -35,7 +70,7 @@
         padding: 4px 20px;
         text-decoration: none;
         white-space: nowrap;
-    }
+    }*/
 
         #menuItem ul li a:hover {
             background-color: #FBB917;
@@ -50,11 +85,11 @@
         }
       
 body {
-    background: #000000;
+    background: white;
     font-size: 9pt;
     font-family: Calibri;
     margin: 0px;
-    color: #000000;
+    color: white;
 }
 
 .page
@@ -76,11 +111,12 @@ body {
 
 .imageDisplay {
   width:100%;
-    height: auto;
 }
 img {
-    width:100%;
-    max-width: 100%
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .imageHeader
@@ -89,7 +125,7 @@ img {
     height:130px;
 }
 
-/* TAB MENU   must be in this order for the tab to function.
+/* TAB MENU   must be in this order for the tab to function
 ----------------------------------------------------------*/
 
 div.menuLink

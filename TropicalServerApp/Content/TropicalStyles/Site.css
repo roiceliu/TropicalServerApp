@@ -44,6 +44,10 @@ body
 
 /* TAB MENU   must be in this order for the tab to function.
 ----------------------------------------------------------*/
+/*#nav{
+    display: flex;
+    justify-content:space-between;
+}*/
 
 div.menuLink
 {

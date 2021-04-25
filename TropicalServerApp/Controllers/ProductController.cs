@@ -6,19 +6,20 @@ using System.Web.Mvc;
 using TropicalServer.BLL;
 using System.Data;
 using TropicalServerApp.Models;
+using System.Web.Security;
 
 namespace TropicalServerApp.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
-        // GET: Product
+        // GET: Products
         public ActionResult Product()
-        {
-            
+        { 
             return View();
         }
 
-        //[ChildActionOnly]
+
         public ActionResult ShowItemType(string ItemTypeDescription)
         {
             

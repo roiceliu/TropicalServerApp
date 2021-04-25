@@ -3,21 +3,27 @@
 
 
 
-<table>
-    <thead>
-        <th>ITEM #</th>
-        <th>ITEM DESCRIPTION</th>
-        <th>PRE-PRICE</th>
-        <th>SIZE</th>
+<table id="dataTable" >
+    <thead >
+        <tr class="chartHeaderStyle">
+            <th>ITEM #</th>
+            <th>ITEM DESCRIPTION</th>
+            <th>PRE-PRICE</th>
+            <th>SIZE</th>
+        </tr>
+        
     </thead>
-    @foreach(DataRow row in Model.Tables[0].Rows)
-            {
-    <tr>
-        <td>@row[0]</td>
-        <td>@row[1]</td>
-        <td>@row[2]</td>
-        <td>@row[3]</td>
-    </tr>
-    }
-    <tr></tr>
+    
+        @foreach (DataRow row in Model.Tables[0].Rows)
+        {
+            <tr>
+                <td>@row[0]</td>
+                <td>@row[1]</td>
+                <td>@row[2]</td>
+                <td>@row[3]</td>
+            </tr>
+        }
+    
+    
+   
 </table>
